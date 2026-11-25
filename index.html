@@ -2,389 +2,226 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0b3d2e">
-<title>صدقة جارية على روح عبدالمنصف السيد ابراهيم شعبان</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --emerald:#0b3d2e; --emerald2:#12503c; --emerald3:#1a6a50;
-  --gold:#c9a227; --gold2:#a8862a; --ivory:#faf6ec; --ivory2:#f3ecd9;
-  --ink:#23312b; --muted:#5c6f66;
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0}
-body{
-  font-family:'Tajawal',sans-serif;background:var(--ivory);color:var(--ink);
-  min-height:100vh;padding-bottom:env(safe-area-inset-bottom);
-}
-header{
-  background:linear-gradient(160deg,var(--emerald) 0%,var(--emerald2) 70%,var(--emerald3) 100%);
-  color:var(--ivory);text-align:center;padding:34px 18px 20px;position:relative;overflow:hidden;
-}
-header::after{
-  content:"";position:absolute;inset:0;opacity:.08;pointer-events:none;
-  background-image:radial-gradient(circle at 25% 30%,var(--gold) 0,transparent 30%),
-                   radial-gradient(circle at 80% 75%,var(--gold) 0,transparent 26%);
-}
-header .bism{font-family:'Amiri',serif;font-size:15px;color:var(--gold);opacity:.95}
-header h1{font-family:'Amiri',serif;font-size:21px;line-height:1.9;margin:10px 0 6px;font-weight:700}
-header h1 .name{color:var(--gold);display:block;font-size:25px;margin-top:4px}
-header .dua-line{font-family:'Amiri',serif;font-size:16px;line-height:1.9;color:var(--ivory2);margin:4px 0 14px}
-.share-btn{
-  display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--emerald);
-  font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;border:none;border-radius:999px;
-  padding:11px 22px;cursor:pointer;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.25);
-  transition:transform .12s ease;
-}
-.share-btn:active{transform:scale(.96)}
-nav{
-  position:sticky;top:0;z-index:20;display:flex;background:#fff;
-  border-bottom:2px solid var(--gold);box-shadow:0 2px 8px rgba(11,61,46,.08);
-}
-nav button{
-  flex:1;background:none;border:none;font-family:'Tajawal',sans-serif;font-weight:700;
-  font-size:13.5px;color:var(--muted);padding:13px 2px;cursor:pointer;border-bottom:3px solid transparent;
-  transition:color .15s;
-}
-nav button.active{color:var(--emerald);border-bottom-color:var(--gold);background:var(--ivory)}
-main{max-width:640px;margin:0 auto;padding:18px 14px 30px}
-.tab{display:none;animation:fade .18s ease}
-.tab.active{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.card{
-  background:#fff;border:1px solid #e7ddc4;border-radius:16px;padding:16px;margin-bottom:14px;
-  box-shadow:0 2px 6px rgba(11,61,46,.05);
-}
-h2{font-family:'Amiri',serif;color:var(--emerald);font-size:20px;margin:2px 0 12px}
-/* ------- Misbaha ------- */
-.dhikr-select{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.dhikr-select button{
-  flex:1 1 45%;background:var(--ivory2);border:1.5px solid #ddd2b3;border-radius:12px;
-  padding:10px 6px;font-family:'Amiri',serif;font-size:16px;color:var(--emerald);cursor:pointer;
-}
-.dhikr-select button.sel{background:var(--emerald);color:var(--gold);border-color:var(--emerald)}
-.tap-zone{
-  width:230px;height:230px;margin:8px auto 14px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,var(--emerald3),var(--emerald) 75%);
-  color:var(--ivory);display:flex;flex-direction:column;align-items:center;justify-content:center;
-  cursor:pointer;user-select:none;border:5px solid var(--gold);
-  box-shadow:0 8px 22px rgba(11,61,46,.3);transition:transform .08s ease;
-}
-.tap-zone:active{transform:scale(.94)}
-.tap-zone .dhikr-now{font-family:'Amiri',serif;font-size:21px;color:var(--gold);margin-bottom:4px;padding:0 16px;text-align:center}
-.tap-zone .count{font-size:56px;font-weight:800;line-height:1.1}
-.tap-zone .hint{font-size:12.5px;color:var(--ivory2);opacity:.85;margin-top:4px}
-.misbaha-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
-.total-box{background:var(--ivory2);border-radius:12px;padding:10px 14px;font-size:14.5px;flex:1;text-align:center}
-.total-box b{color:var(--emerald);font-size:18px}
-.mini-btn{
-  background:none;border:1.5px solid var(--emerald);color:var(--emerald);border-radius:10px;
-  padding:9px 14px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;
-}
-.mini-btn.danger{border-color:#a33;color:#a33}
-.switch-row{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:10px;font-size:13.5px;color:var(--muted)}
-/* ------- Duas ------- */
-.dua-text{font-family:'Amiri',serif;font-size:19px;line-height:2.15;color:var(--ink)}
-.dua-src{font-size:12.5px;color:var(--gold2);margin-top:8px;font-weight:700}
-.dua-actions{display:flex;gap:8px;margin-top:12px}
-.dua-actions button,.dua-actions a{
-  flex:1;text-align:center;text-decoration:none;background:var(--emerald);color:var(--ivory);border:none;
-  border-radius:10px;padding:10px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;
-}
-.dua-actions .wa{background:#1faa53}
-/* ------- Adhkar ------- */
-.adhkar-group{display:flex;gap:8px;margin-bottom:14px}
-.adhkar-group button{
-  flex:1;background:var(--ivory2);border:1.5px solid #ddd2b3;border-radius:12px;padding:11px;
-  font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:var(--emerald);cursor:pointer;
-}
-.adhkar-group button.sel{background:var(--emerald);color:var(--gold);border-color:var(--emerald)}
-.dhikr-card{cursor:pointer;transition:opacity .2s}
-.dhikr-card.done{opacity:.45}
-.dhikr-card .dhikr-text{font-family:'Amiri',serif;font-size:18px;line-height:2}
-.dhikr-card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-.badge{
-  min-width:44px;text-align:center;background:var(--gold);color:var(--emerald);font-weight:800;
-  border-radius:999px;padding:5px 12px;font-size:15px;
-}
-.dhikr-card.done .badge{background:var(--emerald3);color:var(--ivory)}
-.src-note{font-size:12px;color:var(--muted)}
-/* ------- Khatma ------- */
-.progress-wrap{background:var(--ivory2);border-radius:999px;height:26px;overflow:hidden;margin-bottom:6px;border:1px solid #ddd2b3}
-.progress-bar{
-  height:100%;width:0;background:linear-gradient(90deg,var(--emerald3),var(--emerald));
-  display:flex;align-items:center;justify-content:center;color:var(--ivory);font-size:13px;font-weight:800;
-  transition:width .3s ease;min-width:0;
-}
-.progress-label{text-align:center;font-size:13.5px;color:var(--muted);margin-bottom:14px}
-.juz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.juz{
-  background:#fff;border:1.5px solid #e0d5b8;border-radius:12px;padding:11px 4px;text-align:center;
-  cursor:pointer;transition:all .15s;
-}
-.juz .num{font-weight:800;font-size:16px;color:var(--emerald)}
-.juz .nm{font-family:'Amiri',serif;font-size:13.5px;color:var(--muted);margin-top:2px}
-.juz.read{background:var(--emerald);border-color:var(--emerald)}
-.juz.read .num{color:var(--gold)}
-.juz.read .nm{color:var(--ivory2)}
-/* ------- Footer ------- */
-footer{
-  text-align:center;padding:22px 16px 30px;background:var(--emerald);color:var(--ivory2);
-  font-family:'Amiri',serif;font-size:16px;line-height:2;margin-top:10px;
-}
-footer .gold{color:var(--gold)}
-.toast{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--emerald);color:var(--ivory);padding:11px 22px;border-radius:999px;
-  font-weight:700;font-size:14px;opacity:0;transition:all .25s;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.3);
-  max-width:88vw;text-align:center;
-}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>نِداء | صدقة جارية على روح عبدالمنصف السيد ابراهيم شعبان</title>
+<meta name="theme-color" content="#07231a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-  <div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-  <h1>
-    صدقة جارية على روح المغفور له بإذن الله
-    <span class="name">عبدالمنصف السيد ابراهيم شعبان</span>
-  </h1>
-  <div class="dua-line">اللهم اجعل هذا العمل شفيعاً له ونوراً في قبره</div>
-  <a class="share-btn" id="waShare" href="#" target="_blank" rel="noopener">مشاركة عبر واتساب</a>
+<div id="app">
+<div id="errorBanner" class="error-banner hidden"></div>
+<header id="sadaqaHeader">
+  <div class="sh-bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="sh-title">صدقة جارية على روح المرحوم بإذن الله<br><span class="sh-name">عبدالمنصف السيد ابراهيم شعبان</span></div>
+  <div class="sh-dua">اللهم اجعل هذا العمل شفيعاً له ونوراً في قبره</div>
+  <a class="sh-share" id="waShare" href="#" target="_blank" rel="noopener">مشاركة عبر واتساب</a>
 </header>
 
-<nav>
-  <button data-tab="misbaha" class="active">المسبحة</button>
-  <button data-tab="duas">أدعية للمتوفى</button>
-  <button data-tab="adhkar">أذكار الصباح والمساء</button>
-  <button data-tab="khatma">الختمة الجماعية</button>
-</nav>
+  <!-- ======= TIMES TAB ======= -->
+  <section id="tab-times" class="tab active">
+    <div class="hero-card">
+      <div class="hero-sky">
+        <svg id="kaabaSvg" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" aria-label="رسمة الكعبة الشريفة">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0a2e23"/><stop offset="0.7" stop-color="#0f4a35"/><stop offset="1" stop-color="#14604500"/>
+            </linearGradient>
+            <linearGradient id="kiswa" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#232323"/><stop offset="0.5" stop-color="#0d0d0d"/><stop offset="1" stop-color="#1c1c1c"/>
+            </linearGradient>
+            <linearGradient id="kiswaSide" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#151515"/><stop offset="1" stop-color="#050505"/>
+            </linearGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f3d57e"/><stop offset="0.5" stop-color="#caa437"/><stop offset="1" stop-color="#a8842a"/>
+            </linearGradient>
+            <linearGradient id="goldDoor" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f7e192"/><stop offset="1" stop-color="#b28c2c"/>
+            </linearGradient>
+            <radialGradient id="glow" cx="0.5" cy="0.35" r="0.8">
+              <stop offset="0" stop-color="#ffe9a8" stop-opacity="0.35"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="340" height="200" fill="url(#sky)"/>
+          <circle cx="170" cy="105" r="95" fill="url(#glow)"/>
+          <!-- stars -->
+          <g fill="#f7e6ad">
+            <circle cx="35" cy="28" r="1.4"/><circle cx="70" cy="16" r="1"/><circle cx="112" cy="34" r="1.2"/>
+            <circle cx="232" cy="22" r="1.3"/><circle cx="272" cy="38" r="1"/><circle cx="308" cy="20" r="1.4"/>
+            <circle cx="52" cy="58" r="0.9"/><circle cx="300" cy="62" r="1"/><circle cx="150" cy="14" r="1"/>
+          </g>
+          <!-- crescent -->
+          <path d="M 297 32 a 15 15 0 1 0 10 24 a 11.5 11.5 0 1 1 -10 -24 z" fill="#f3d57e"/>
+          <!-- ground -->
+          <ellipse cx="170" cy="180" rx="150" ry="16" fill="#0a2e23" opacity="0.85"/>
+          <!-- Kaaba -->
+          <g>
+            <!-- left face -->
+            <polygon points="170,74 96,96 96,168 170,182" fill="url(#kiswaSide)"/>
+            <!-- front face -->
+            <polygon points="170,74 248,94 248,166 170,182" fill="url(#kiswa)"/>
+            <!-- hizam gold band: front -->
+            <polygon points="170,86 248,105.5 248,117 170,98" fill="url(#gold)"/>
+            <!-- hizam gold band: left -->
+            <polygon points="170,86 96,107 96,118.5 170,98" fill="url(#gold)" opacity="0.82"/>
+            <!-- band ornament -->
+            <g stroke="#7a5c14" stroke-width="0.7" opacity="0.7">
+              <line x1="182" y1="90.6" x2="182" y2="102"/><line x1="196" y1="94.2" x2="196" y2="105.4"/>
+              <line x1="210" y1="97.8" x2="210" y2="108.9"/><line x1="224" y1="101.3" x2="224" y2="112.4"/>
+              <line x1="236" y1="104.4" x2="236" y2="115.4"/>
+              <line x1="156" y1="92.2" x2="156" y2="104"/><line x1="140" y1="96.6" x2="140" y2="108.2"/>
+              <line x1="124" y1="100.9" x2="124" y2="112.4"/><line x1="108" y1="105.3" x2="108" y2="116.6"/>
+            </g>
+            <!-- door -->
+            <polygon points="212,132 232,137.5 232,161.5 212,158" fill="url(#goldDoor)" stroke="#8a6a1c" stroke-width="0.8"/>
+            <line x1="222" y1="134.8" x2="222" y2="159.8" stroke="#8a6a1c" stroke-width="0.8"/>
+            <!-- roof edge -->
+            <polygon points="170,74 248,94 244,96.5 170,77.5" fill="#2e2e2e"/>
+            <polygon points="170,74 96,96 100,98.4 170,77.5" fill="#1a1a1a"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-info">
+        <div id="digitalClock" class="digital-clock">--:--:--</div>
+        <div id="dateLine" class="date-line"></div>
+        <div id="hijriLine" class="hijri-line"></div>
+        <div class="next-prayer">
+          <div class="np-label">الصلاة القادمة</div>
+          <div class="np-main"><span id="npName">-</span><span id="npCountdown" class="np-count">--:--:--</span></div>
+          <div class="np-bar"><div id="npProgress" class="np-progress"></div></div>
+        </div>
+      </div>
+    </div>
 
-<main>
-  <!-- ============ MISBAHA ============ -->
-  <section class="tab active" id="tab-misbaha">
-    <h2>المسبحة الإلكترونية</h2>
+    <div class="city-line"><span id="cityName">المنصورة</span> · طريقة الهيئة المصرية العامة للمساحة</div>
+    <div id="prayerList" class="prayer-list"></div>
+  </section>
+
+  <!-- ======= QURAN TAB ======= -->
+  <section id="tab-quran" class="tab">
+    <div id="quranListView">
+      <div class="tab-header">القرآن الكريم</div>
+      <input id="surahSearch" class="search-box" type="text" placeholder="ابحث عن سورة...">
+      <div id="surahList" class="surah-list"></div>
+    </div>
+    <div id="quranReaderView" class="hidden">
+      <div class="reader-header">
+        <button id="readerBack" class="back-btn">→ السور</button>
+        <div class="reader-title-wrap"><div id="readerTitle" class="reader-title"></div><div id="readerMeta" class="reader-meta"></div></div>
+        <button id="readerPlay" class="play-btn hidden">▶</button>
+      </div>
+      <div id="readerBody" class="reader-body"></div>
+      <div class="audio-note hidden" id="audioNote"></div>
+    </div>
+  </section>
+
+  <!-- ======= ADHKAR TAB ======= -->
+  <section id="tab-adhkar" class="tab">
+    <div id="adhkarListView">
+      <div class="tab-header">الأذكار</div>
+      <input id="adhkarSearch" class="search-box" type="text" placeholder="ابحث في الأذكار...">
+      <div id="adhkarList" class="adhkar-list"></div>
+    </div>
+    <div id="adhkarDetailView" class="hidden">
+      <div class="reader-header">
+        <button id="adhkarBack" class="back-btn">→ الأذكار</button>
+        <div class="reader-title-wrap"><div id="adhkarTitle" class="reader-title"></div></div>
+      </div>
+      <div id="adhkarBody" class="adhkar-body"></div>
+    </div>
+  </section>
+
+  <!-- ======= MISBAHA TAB ======= -->
+  <section id="tab-misbaha" class="tab">
+    <div class="tab-header">المسبحة الإلكترونية</div>
     <div class="dhikr-select" id="dhikrSelect"></div>
     <div class="tap-zone" id="tapZone">
       <div class="dhikr-now" id="dhikrNow"></div>
-      <div class="count" id="countNow">0</div>
-      <div class="hint">المس هنا للتسبيح</div>
+      <div class="tap-count" id="countNow">٠</div>
+      <div class="tap-hint">المس هنا للتسبيح</div>
     </div>
     <div class="misbaha-row">
-      <div class="total-box">إجمالي تسبيحاتك<br><b id="grandTotal">0</b></div>
+      <div class="total-box">إجمالي تسبيحاتك<br><b id="grandTotal">٠</b></div>
       <button class="mini-btn danger" id="resetBtn">تصفير العداد الحالي</button>
     </div>
-    <div class="switch-row">
-      <label><input type="checkbox" id="soundToggle"> صوت نقرة هادئ</label>
-    </div>
+    <div class="switch-row"><label><input type="checkbox" id="soundToggle"> صوت نقرة هادئ</label></div>
   </section>
 
-  <!-- ============ DUAS ============ -->
-  <section class="tab" id="tab-duas">
-    <h2>أدعية مأثورة للمغفور له عبدالمنصف</h2>
+  <!-- ======= DUAS TAB ======= -->
+  <section id="tab-duas" class="tab">
+    <div class="tab-header">أدعية مأثورة للمغفور له عبدالمنصف</div>
     <div id="duaList"></div>
   </section>
 
-  <!-- ============ ADHKAR ============ -->
-  <section class="tab" id="tab-adhkar">
-    <h2>أذكار الصباح والمساء</h2>
-    <div class="adhkar-group">
-      <button id="btnMorning" class="sel">أذكار الصباح</button>
-      <button id="btnEvening">أذكار المساء</button>
-    </div>
-    <div class="progress-label">اضغط على الذكر لإنقاص عداده حتى يكتمل</div>
-    <div id="adhkarList"></div>
-    <div style="text-align:center;margin-top:8px"><button class="mini-btn" id="adhkarReset">إعادة الأذكار من الأول</button></div>
-  </section>
-
-  <!-- ============ KHATMA ============ -->
-  <section class="tab" id="tab-khatma">
-    <h2>الختمة الجماعية</h2>
-    <div class="progress-label">اضغط على الجزء الذي قرأته لتحويله إلى «تمت القراءة»، وشارك الرابط ليكتمل القرآن بقراءة الزوار</div>
-    <div class="progress-wrap"><div class="progress-bar" id="khatmaBar">0%</div></div>
+  <!-- ======= KHATMA TAB ======= -->
+  <section id="tab-khatma" class="tab">
+    <div class="tab-header">الختمة الجماعية</div>
+    <div class="tab-sub">اضغط على الجزء الذي قرأته لتحويله إلى «تمت القراءة»، وشارك التطبيق ليكتمل القرآن بقراءة الزوار</div>
+    <div class="progress-wrap"><div class="progress-bar" id="khatmaBar">٠٪</div></div>
     <div class="progress-label" id="khatmaLabel"></div>
     <div class="juz-grid" id="juzGrid"></div>
     <div style="text-align:center;margin-top:14px"><button class="mini-btn danger" id="khatmaReset">بدء ختمة جديدة</button></div>
   </section>
-</main>
 
-<footer>
-  نسألكم الدعاء له بالرحمة والمغفرة، ولا تنسوا مشاركة التطبيق ليعم الأجر والثواب
-  <br><span class="gold">«إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ» — رواه مسلم</span>
-</footer>
+  <!-- ======= MUEZZIN TAB ======= -->
+  <section id="tab-muezzin" class="tab">
+    <div class="tab-header">صوت المؤذن</div>
+    <div class="tab-sub">اختر صوت الأذان، ويمكنك سماعه قبل الاختيار</div>
+    <div id="voiceList" class="voice-list"></div>
+  </section>
 
+  <!-- ======= SETTINGS TAB ======= -->
+  <section id="tab-settings" class="tab">
+    <div class="tab-header">الإعدادات</div>
+    <div class="settings-group">
+      <label class="set-label">المدينة</label>
+      <select id="citySelect" class="city-select"></select>
+    </div>
+    <div class="settings-group row">
+      <span>تفعيل الأذان</span>
+      <label class="switch"><input type="checkbox" id="masterSwitch" checked><span class="slider"></span></label>
+    </div>
+    <div class="settings-group">
+      <button id="testAdhan" class="gold-btn">تجربة الأذان</button>
+    </div>
+    <div class="settings-group" id="notifPermBar" style="display:none"><span id="notifPermText"></span> <button id="notifPermBtn" class="plain-btn" style="margin-top:8px">السماح بالإشعارات</button></div>
+    <div class="settings-group note" id="permNote"></div>
+    <div class="settings-group note" id="nextAlarmLine" style="display:none"></div>
+    <div class="settings-group about">
+      <div class="about-title">عن التطبيق</div>
+      <div class="about-dev">تطوير: <b>كريم عبدالمنصف</b><br><span class="en">Karim Abdelmonsef</span></div>
+      <div class="about-ded">صدقة جارية على روح المرحوم بإذن الله<br><b>عبدالمنصف السيد ابراهيم شعبان</b><br>رحمه الله وأسكنه فسيح جناته</div>
+    </div>
+    <div class="settings-group">
+      <button id="showLicences" class="plain-btn">التراخيص والمصادر</button>
+    </div>
+    <div id="licencePanel" class="licence-panel hidden"></div>
+  </section>
+
+<footer id="sadaqaFooter">نسألكم الدعاء له بالرحمة والمغفرة <span class="gold">«إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٌ يُنْتَفَعُ بِهِ، أَوْ وَلَدٌ صَالِحٌ يَدْعُو لَهُ» — رواه مسلم</span></footer>
 <div class="toast" id="toast"></div>
-
-<script>
-"use strict";
-const $=id=>document.getElementById(id);
-const store={
-  get(k,d){try{const v=localStorage.getItem("sadaqa_"+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
-  set(k,v){try{localStorage.setItem("sadaqa_"+k,JSON.stringify(v))}catch(e){}}
-};
-function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._tm);t._tm=setTimeout(()=>t.classList.remove("show"),2200);}
-function buzz(){if(navigator.vibrate)try{navigator.vibrate(25)}catch(e){}}
-
-/* ---------- Tabs ---------- */
-document.querySelectorAll("nav button").forEach(b=>{
-  b.addEventListener("click",()=>{
-    document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-    b.classList.add("active");
-    $("tab-"+b.dataset.tab).classList.add("active");
-  });
-});
-
-/* ---------- WhatsApp share ---------- */
-const pageUrl=location.href.split("?")[0];
-const shareText="صدقة جارية على روح المغفور له بإذن الله عبدالمنصف السيد ابراهيم شعبان — مسبحة وأدعية وأذكار وختمة جماعية. شارك ليعم الأجر: "+pageUrl;
-$("waShare").href="https://wa.me/?text="+encodeURIComponent(shareText);
-
-/* ---------- Misbaha ---------- */
-const DHIKR=["سبحان الله","الحمد لله","لا إله إلا الله","الله أكبر","أستغفر الله العظيم","اللهم صلِّ وسلم على نبينا محمد"];
-let counts=store.get("misbaha_counts",DHIKR.map(()=>0));
-let sel=store.get("misbaha_sel",0);
-function renderMisbaha(){
-  const ds=$("dhikrSelect");ds.innerHTML="";
-  DHIKR.forEach((d,i)=>{
-    const b=document.createElement("button");
-    b.textContent=d;if(i===sel)b.classList.add("sel");
-    b.addEventListener("click",()=>{sel=i;store.set("misbaha_sel",sel);renderMisbaha();});
-    ds.appendChild(b);
-  });
-  $("dhikrNow").textContent=DHIKR[sel];
-  $("countNow").textContent=counts[sel];
-  $("grandTotal").textContent=counts.reduce((a,b)=>a+b,0);
-}
-let audioCtx=null;
-function clickSound(){
-  if(!$("soundToggle").checked)return;
-  try{
-    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
-    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
-    o.type="sine";o.frequency.value=880;g.gain.setValueAtTime(.06,audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.09);
-    o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.1);
-  }catch(e){}
-}
-$("tapZone").addEventListener("click",()=>{
-  counts[sel]++;store.set("misbaha_counts",counts);
-  $("countNow").textContent=counts[sel];
-  $("grandTotal").textContent=counts.reduce((a,b)=>a+b,0);
-  buzz();clickSound();
-});
-$("resetBtn").addEventListener("click",()=>{
-  counts[sel]=0;store.set("misbaha_counts",counts);renderMisbaha();toast("تم تصفير العداد الحالي");
-});
-$("soundToggle").checked=store.get("misbaha_sound",false);
-$("soundToggle").addEventListener("change",()=>store.set("misbaha_sound",$("soundToggle").checked));
-renderMisbaha();
-
-/* ---------- Duas ---------- */
-const N="عبدالمنصف"; // المغفور له عبدالمنصف السيد ابراهيم شعبان
-const DUAS=[
- {t:"اللهم اغفر لـ"+N+" وارحمه وعافه واعفُ عنه، وأكرم نزله ووسّع مدخله، واغسله بالماء والثلج والبرد، ونقّه من الخطايا كما يُنقّى الثوب الأبيض من الدنس",s:"من دعاء صلاة الجنازة — رواه مسلم"},
- {t:"اللهم أبدل "+N+" داراً خيراً من داره، وأهلاً خيراً من أهله، وأدخله الجنة، وأعذه من عذاب القبر ومن عذاب النار",s:"من دعاء صلاة الجنازة — رواه مسلم"},
- {t:"اللهم اغفر لحيّنا وميّتنا، وشاهدنا وغائبنا، وصغيرنا وكبيرنا، وذكرنا وأنثانا",s:"رواه أبو داود والترمذي وصححه"},
- {t:"اللهم لا تحرمنا أجره، ولا تفتنّا بعده، واغفر لنا وله",s:"رواه الترمذي وابن ماجه"},
- {t:"اللهم يا حنان يا منان، وسّع قبر "+N+" ونوّره له فيه، وارفعه في عليّين مع النبيين والصديقين والشهداء والصالحين وحسن أولئك رفيقاً",s:"دعاء"},
- {t:"اللهم اجعل "+N+" من أهل الفردوس الأعلى بغير حساب ولا سابقة عذاب، واجمعنا به مستقيمين على طاعتك",s:"دعاء"},
- {t:"اللهم إن "+N+" في ذمتك وحبل جوارك، فقه من فتنة القبر وعذاب النار، وأنت أهل الوفاء والحق، فاغفر له وارحمه إنك أنت الغفور الرحيم",s:"رواه ابن ماجه وصححه الألباني"},
- {t:"اللهم اجعل ما قرأناه وما عملناه في هذا العمل في ميزان حسنات "+N+"، وتقبله منا صدقة جارية عنه",s:"دعاء"}
-];
-const duaList=$("duaList");
-DUAS.forEach(d=>{
-  const c=document.createElement("div");c.className="card";
-  c.innerHTML='<div class="dua-text"></div><div class="dua-src"></div><div class="dua-actions"><button class="cp">نسخ الدعاء</button><a class="wa" target="_blank" rel="noopener">مشاركة عبر واتساب</a></div>';
-  c.querySelector(".dua-text").textContent=d.t;
-  c.querySelector(".dua-src").textContent=d.s;
-  c.querySelector(".wa").href="https://wa.me/?text="+encodeURIComponent(d.t+"\n\n(صدقة جارية على روح عبدالمنصف السيد ابراهيم شعبان)");
-  c.querySelector(".cp").addEventListener("click",async ()=>{
-    try{await navigator.clipboard.writeText(d.t);toast("تم نسخ الدعاء");}
-    catch(e){
-      const ta=document.createElement("textarea");ta.value=d.t;document.body.appendChild(ta);
-      ta.select();try{document.execCommand("copy");toast("تم نسخ الدعاء");}catch(_){toast("تعذر النسخ على هذا المتصفح");}
-      ta.remove();
-    }
-  });
-  duaList.appendChild(c);
-});
-
-/* ---------- Adhkar ---------- */
-const ADHKAR_MORNING=[
- {t:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",n:1,s:"آية الكرسي — البقرة ٢٥٥"},
- {t:"قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ — مع المعوذتين",n:3,s:"رواه أبو داود والترمذي"},
- {t:"أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",n:1,s:"رواه مسلم"},
- {t:"اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ",n:1,s:"رواه الترمذي"},
- {t:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",n:1,s:"سيد الاستغفار — رواه البخاري"},
- {t:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",n:3,s:"رواه أبو داود والترمذي"},
- {t:"رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",n:3,s:"رواه أبو داود"},
- {t:"حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",n:7,s:"رواه أبو داود"},
- {t:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",n:100,s:"رواه مسلم"}
-];
-const ADHKAR_EVENING=[
- {t:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",n:1,s:"آية الكرسي — البقرة ٢٥٥"},
- {t:"قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ — مع المعوذتين",n:3,s:"رواه أبو داود والترمذي"},
- {t:"أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",n:1,s:"رواه مسلم"},
- {t:"اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ",n:1,s:"رواه الترمذي"},
- {t:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",n:1,s:"سيد الاستغفار — رواه البخاري"},
- {t:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",n:3,s:"رواه أبو داود والترمذي"},
- {t:"رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",n:3,s:"رواه أبو داود"},
- {t:"أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",n:3,s:"رواه مسلم"},
- {t:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",n:100,s:"رواه مسلم"}
-];
-let adhkarMode="morning";
-function todayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();}
-function adhkarState(){return store.get("adhkar_"+adhkarMode+"_"+todayKey(),(adhkarMode==="morning"?ADHKAR_MORNING:ADHKAR_EVENING).map(a=>a.n));}
-function renderAdhkar(){
-  const list=$("adhkarList");list.innerHTML="";
-  const data=adhkarMode==="morning"?ADHKAR_MORNING:ADHKAR_EVENING;
-  const st=adhkarState();
-  data.forEach((a,i)=>{
-    const c=document.createElement("div");c.className="card dhikr-card"+(st[i]<=0?" done":"");
-    c.innerHTML='<div class="dhikr-text"></div><div class="meta"><span class="src-note"></span><span class="badge"></span></div>';
-    c.querySelector(".dhikr-text").textContent=a.t;
-    c.querySelector(".src-note").textContent=a.s;
-    c.querySelector(".badge").textContent=st[i]<=0?"✓":st[i];
-    c.addEventListener("click",()=>{
-      const s2=adhkarState();
-      if(s2[i]>0){s2[i]--;store.set("adhkar_"+adhkarMode+"_"+todayKey(),s2);buzz();renderAdhkar();}
-    });
-    list.appendChild(c);
-  });
-}
-$("btnMorning").addEventListener("click",()=>{adhkarMode="morning";$("btnMorning").classList.add("sel");$("btnEvening").classList.remove("sel");renderAdhkar();});
-$("btnEvening").addEventListener("click",()=>{adhkarMode="evening";$("btnEvening").classList.add("sel");$("btnMorning").classList.remove("sel");renderAdhkar();});
-$("adhkarReset").addEventListener("click",()=>{
-  const data=adhkarMode==="morning"?ADHKAR_MORNING:ADHKAR_EVENING;
-  store.set("adhkar_"+adhkarMode+"_"+todayKey(),data.map(a=>a.n));renderAdhkar();toast("تمت إعادة الأذكار");
-});
-renderAdhkar();
-
-/* ---------- Khatma ---------- */
-const AJZA=["الم","سَيَقُولُ","تِلْكَ الرُّسُلُ","لَنْ تَنَالُوا","وَالْمُحْصَنَاتُ","لَا يُحِبُّ اللَّهُ","وَإِذَا سَمِعُوا","وَلَوْ أَنَّنَا","قَالَ الْمَلَأُ","وَاعْلَمُوا","يَعْتَذِرُونَ","وَمَا مِنْ دَابَّةٍ","وَمَا أُبَرِّئُ","رُبَمَا","سُبْحَانَ الَّذِي","قَالَ أَلَمْ","اقْتَرَبَ لِلنَّاسِ","قَدْ أَفْلَحَ","وَقَالَ الَّذِينَ","أَمَّنْ خَلَقَ","اتْلُ مَا أُوحِيَ","وَمَنْ يَقْنُتْ","وَمَا لِيَ","فَمَنْ ظَلَمَ","إِلَيْهِ يُرَدُّ","حم","قَالَ فَمَا خَطْبُكُمْ","قَدْ سَمِعَ اللَّهُ","تَبَارَكَ الَّذِي","عَمَّ"];
-let juzState=store.get("khatma",AJZA.map(()=>false));
-function renderKhatma(){
-  const g=$("juzGrid");g.innerHTML="";
-  AJZA.forEach((nm,i)=>{
-    const c=document.createElement("div");c.className="juz"+(juzState[i]?" read":"");
-    c.innerHTML='<div class="num">الجزء '+(i+1)+'</div><div class="nm"></div>';
-    c.querySelector(".nm").textContent=nm;
-    c.addEventListener("click",()=>{juzState[i]=!juzState[i];store.set("khatma",juzState);buzz();renderKhatma();});
-    g.appendChild(c);
-  });
-  const done=juzState.filter(Boolean).length,pct=Math.round(done/30*100);
-  $("khatmaBar").style.width=pct+"%";$("khatmaBar").textContent=pct+"%";
-  $("khatmaLabel").textContent=done===30?"ما شاء الله، اكتملت الختمة. تقبل الله منكم":"تمت قراءة "+done+" من ٣٠ جزءاً";
-}
-$("khatmaReset").addEventListener("click",()=>{
-  juzState=AJZA.map(()=>false);store.set("khatma",juzState);renderKhatma();toast("بدأت ختمة جديدة");
-});
-renderKhatma();
-</script>
+  <!-- ======= NAV ======= -->
+  <nav id="navbar">
+    <button class="nav-btn active" data-tab="tab-times"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span>المواقيت</span></button>
+    <button class="nav-btn" data-tab="tab-quran"><svg viewBox="0 0 24 24"><path d="M4 4h7a2 2 0 0 1 1 .6A2 2 0 0 1 13 4h7v15h-7a2 2 0 0 0-2 2 2 2 0 0 0-2-2H4z"/></svg><span>القرآن</span></button>
+    <button class="nav-btn" data-tab="tab-adhkar"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="5" cy="8.5" r="2"/><circle cx="19" cy="8.5" r="2"/><circle cx="5" cy="15.5" r="2"/><circle cx="19" cy="15.5" r="2"/></svg><span>الأذكار</span></button>
+    <button class="nav-btn" data-tab="tab-misbaha"><svg viewBox="0 0 24 24"><circle cx="5" cy="7" r="2"/><circle cx="9.5" cy="4.6" r="2"/><circle cx="14.5" cy="4.6" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="19.4" cy="12" r="2"/><circle cx="16.8" cy="16.6" r="2"/><circle cx="12" cy="18.8" r="2.4"/><circle cx="7.2" cy="16.6" r="2"/><circle cx="4.6" cy="12" r="2"/></svg><span>المسبحة</span></button>
+    <button class="nav-btn" data-tab="tab-duas"><svg viewBox="0 0 24 24"><path d="M14.5 3a8 8 0 1 0 5.6 13.7A9.3 9.3 0 0 1 14.5 3z"/><path d="M18.6 2.6l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg><span>أدعية</span></button>
+    <button class="nav-btn" data-tab="tab-khatma"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span>الختمة</span></button>
+    <button class="nav-btn" data-tab="tab-muezzin"><svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg><span>المؤذن</span></button>
+    <button class="nav-btn" data-tab="tab-settings"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm9 4a7 7 0 0 1-.1 1.2l2 1.5-2 3.5-2.3-1a7 7 0 0 1-2.1 1.2L16 21H8l-.5-2.6a7 7 0 0 1-2.1-1.2l-2.3 1-2-3.5 2-1.5A7 7 0 0 1 3 12a7 7 0 0 1 .1-1.2l-2-1.5 2-3.5 2.3 1a7 7 0 0 1 2.1-1.2L8 3h8l.5 2.6a7 7 0 0 1 2.1 1.2l2.3-1 2 3.5-2 1.5a7 7 0 0 1 .1 1.2z"/></svg><span>الإعدادات</span></button>
+  </nav>
+</div>
+<script src="prayer.js"></script>
+<script src="data.js"></script>
+<script src="quran.js"></script>
+<script src="azkar.js"></script>
+<script src="app.js"></script>
+<script src="sadaqa.js"></script>
+<script src="pwa.js"></script>
 </body>
 </html>

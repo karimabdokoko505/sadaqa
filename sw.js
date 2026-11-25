@@ -1,0 +1,69 @@
+var CACHE='nidaa-v4';
+var FILES=[
+  "./AmiriQuran-Regular.ttf",
+  "./Tajawal-Bold.ttf",
+  "./Tajawal-Medium.ttf",
+  "./Tajawal-Regular.ttf",
+  "./adhan_aaqib.mp3",
+  "./adhan_azan.mp3",
+  "./adhan_beautiful.mp3",
+  "./adhan_fajr.mp3",
+  "./adhan_hassan2.mp3",
+  "./adhan_istanbul.mp3",
+  "./adhan_maahur.mp3",
+  "./adhan_madinah.mp3",
+  "./adhan_makkah.mp3",
+  "./adhan_makkah_maghrib.mp3",
+  "./adhan_sabah.mp3",
+  "./adhan_worship.mp3",
+  "./app.js",
+  "./apple-touch-icon.png",
+  "./azkar.js",
+  "./data.js",
+  "./icon-192.png",
+  "./icon-512.png",
+  "./index.html",
+  "./manifest.webmanifest",
+  "./maskable-512.png",
+  "./prayer.js",
+  "./pwa.js",
+  "./quran.js",
+  "./quran_001.mp3",
+  "./quran_069.mp3",
+  "./quran_090.mp3",
+  "./quran_091.mp3",
+  "./quran_092.mp3",
+  "./quran_093.mp3",
+  "./quran_094.mp3",
+  "./quran_095.mp3",
+  "./quran_096.mp3",
+  "./quran_097.mp3",
+  "./quran_098.mp3",
+  "./quran_099.mp3",
+  "./quran_100.mp3",
+  "./quran_101.mp3",
+  "./quran_102.mp3",
+  "./quran_103.mp3",
+  "./quran_104.mp3",
+  "./quran_105.mp3",
+  "./quran_106.mp3",
+  "./quran_107.mp3",
+  "./quran_108.mp3",
+  "./quran_109.mp3",
+  "./quran_110.mp3",
+  "./quran_111.mp3",
+  "./quran_112.mp3",
+  "./quran_113.mp3",
+  "./quran_114.mp3",
+  "./sadaqa.js",
+  "./styles.css"
+];
+self.addEventListener('install',function(e){
+  e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(FILES);}).then(function(){return self.skipWaiting();}));
+});
+self.addEventListener('activate',function(e){
+  e.waitUntil(caches.keys().then(function(keys){return Promise.all(keys.map(function(k){return k===CACHE?null:caches.delete(k);}));}).then(function(){return self.clients.claim();}));
+});
+self.addEventListener('fetch',function(e){
+  e.respondWith(caches.match(e.request,{ignoreSearch:true}).then(function(r){return r||fetch(e.request);}));
+});
