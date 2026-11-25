@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b3d2e">
+<title>صدقة جارية على روح عبدالمنصف السيد ابراهيم شعبان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --emerald:#0b3d2e; --emerald2:#12503c; --emerald3:#1a6a50;
+  --gold:#c9a227; --gold2:#a8862a; --ivory:#faf6ec; --ivory2:#f3ecd9;
+  --ink:#23312b; --muted:#5c6f66;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Tajawal',sans-serif;background:var(--ivory);color:var(--ink);
+  min-height:100vh;padding-bottom:env(safe-area-inset-bottom);
+}
+header{
+  background:linear-gradient(160deg,var(--emerald) 0%,var(--emerald2) 70%,var(--emerald3) 100%);
+  color:var(--ivory);text-align:center;padding:34px 18px 20px;position:relative;overflow:hidden;
+}
+header::after{
+  content:"";position:absolute;inset:0;opacity:.08;pointer-events:none;
+  background-image:radial-gradient(circle at 25% 30%,var(--gold) 0,transparent 30%),
+                   radial-gradient(circle at 80% 75%,var(--gold) 0,transparent 26%);
+}
+header .bism{font-family:'Amiri',serif;font-size:15px;color:var(--gold);opacity:.95}
+header h1{font-family:'Amiri',serif;font-size:21px;line-height:1.9;margin:10px 0 6px;font-weight:700}
+header h1 .name{color:var(--gold);display:block;font-size:25px;margin-top:4px}
+header .dua-line{font-family:'Amiri',serif;font-size:16px;line-height:1.9;color:var(--ivory2);margin:4px 0 14px}
+.share-btn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--emerald);
+  font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;border:none;border-radius:999px;
+  padding:11px 22px;cursor:pointer;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.25);
+  transition:transform .12s ease;
+}
+.share-btn:active{transform:scale(.96)}
+nav{
+  position:sticky;top:0;z-index:20;display:flex;background:#fff;
+  border-bottom:2px solid var(--gold);box-shadow:0 2px 8px rgba(11,61,46,.08);
+}
+nav button{
+  flex:1;background:none;border:none;font-family:'Tajawal',sans-serif;font-weight:700;
+  font-size:13.5px;color:var(--muted);padding:13px 2px;cursor:pointer;border-bottom:3px solid transparent;
+  transition:color .15s;
+}
+nav button.active{color:var(--emerald);border-bottom-color:var(--gold);background:var(--ivory)}
+main{max-width:640px;margin:0 auto;padding:18px 14px 30px}
+.tab{display:none;animation:fade .18s ease}
+.tab.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card{
+  background:#fff;border:1px solid #e7ddc4;border-radius:16px;padding:16px;margin-bottom:14px;
+  box-shadow:0 2px 6px rgba(11,61,46,.05);
+}
+h2{font-family:'Amiri',serif;color:var(--emerald);font-size:20px;margin:2px 0 12px}
+/* ------- Misbaha ------- */
+.dhikr-select{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.dhikr-select button{
+  flex:1 1 45%;background:var(--ivory2);border:1.5px solid #ddd2b3;border-radius:12px;
+  padding:10px 6px;font-family:'Amiri',serif;font-size:16px;color:var(--emerald);cursor:pointer;
+}
+.dhikr-select button.sel{background:var(--emerald);color:var(--gold);border-color:var(--emerald)}
+.tap-zone{
+  width:230px;height:230px;margin:8px auto 14px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--emerald3),var(--emerald) 75%);
+  color:var(--ivory);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;user-select:none;border:5px solid var(--gold);
+  box-shadow:0 8px 22px rgba(11,61,46,.3);transition:transform .08s ease;
+}
+.tap-zone:active{transform:scale(.94)}
+.tap-zone .dhikr-now{font-family:'Amiri',serif;font-size:21px;color:var(--gold);margin-bottom:4px;padding:0 16px;text-align:center}
+.tap-zone .count{font-size:56px;font-weight:800;line-height:1.1}
+.tap-zone .hint{font-size:12.5px;color:var(--ivory2);opacity:.85;margin-top:4px}
+.misbaha-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.total-box{background:var(--ivory2);border-radius:12px;padding:10px 14px;font-size:14.5px;flex:1;text-align:center}
+.total-box b{color:var(--emerald);font-size:18px}
+.mini-btn{
+  background:none;border:1.5px solid var(--emerald);color:var(--emerald);border-radius:10px;
+  padding:9px 14px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;
+}
+.mini-btn.danger{border-color:#a33;color:#a33}
+.switch-row{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:10px;font-size:13.5px;color:var(--muted)}
+/* ------- Duas ------- */
+.dua-text{font-family:'Amiri',serif;font-size:19px;line-height:2.15;color:var(--ink)}
+.dua-src{font-size:12.5px;color:var(--gold2);margin-top:8px;font-weight:700}
+.dua-actions{display:flex;gap:8px;margin-top:12px}
+.dua-actions button,.dua-actions a{
+  flex:1;text-align:center;text-decoration:none;background:var(--emerald);color:var(--ivory);border:none;
+  border-radius:10px;padding:10px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;
+}
+.dua-actions .wa{background:#1faa53}
+/* ------- Adhkar ------- */
+.adhkar-group{display:flex;gap:8px;margin-bottom:14px}
+.adhkar-group button{
+  flex:1;background:var(--ivory2);border:1.5px solid #ddd2b3;border-radius:12px;padding:11px;
+  font-family:'Tajawal',sans-serif;font-weight:800;font-size:15px;color:var(--emerald);cursor:pointer;
+}
+.adhkar-group button.sel{background:var(--emerald);color:var(--gold);border-color:var(--emerald)}
+.dhikr-card{cursor:pointer;transition:opacity .2s}
+.dhikr-card.done{opacity:.45}
+.dhikr-card .dhikr-text{font-family:'Amiri',serif;font-size:18px;line-height:2}
+.dhikr-card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.badge{
+  min-width:44px;text-align:center;background:var(--gold);color:var(--emerald);font-weight:800;
+  border-radius:999px;padding:5px 12px;font-size:15px;
+}
+.dhikr-card.done .badge{background:var(--emerald3);color:var(--ivory)}
+.src-note{font-size:12px;color:var(--muted)}
+/* ------- Khatma ------- */
+.progress-wrap{background:var(--ivory2);border-radius:999px;height:26px;overflow:hidden;margin-bottom:6px;border:1px solid #ddd2b3}
+.progress-bar{
+  height:100%;width:0;background:linear-gradient(90deg,var(--emerald3),var(--emerald));
+  display:flex;align-items:center;justify-content:center;color:var(--ivory);font-size:13px;font-weight:800;
+  transition:width .3s ease;min-width:0;
+}
+.progress-label{text-align:center;font-size:13.5px;color:var(--muted);margin-bottom:14px}
+.juz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.juz{
+  background:#fff;border:1.5px solid #e0d5b8;border-radius:12px;padding:11px 4px;text-align:center;
+  cursor:pointer;transition:all .15s;
+}
+.juz .num{font-weight:800;font-size:16px;color:var(--emerald)}
+.juz .nm{font-family:'Amiri',serif;font-size:13.5px;color:var(--muted);margin-top:2px}
+.juz.read{background:var(--emerald);border-color:var(--emerald)}
+.juz.read .num{color:var(--gold)}
+.juz.read .nm{color:var(--ivory2)}
+/* ------- Footer ------- */
+footer{
+  text-align:center;padding:22px 16px 30px;background:var(--emerald);color:var(--ivory2);
+  font-family:'Amiri',serif;font-size:16px;line-height:2;margin-top:10px;
+}
+footer .gold{color:var(--gold)}
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--emerald);color:var(--ivory);padding:11px 22px;border-radius:999px;
+  font-weight:700;font-size:14px;opacity:0;transition:all .25s;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.3);
+  max-width:88vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <h1>
+    صدقة جارية على روح المغفور له بإذن الله
+    <span class="name">عبدالمنصف السيد ابراهيم شعبان</span>
+  </h1>
+  <div class="dua-line">اللهم اجعل هذا العمل شفيعاً له ونوراً في قبره</div>
+  <a class="share-btn" id="waShare" href="#" target="_blank" rel="noopener">مشاركة عبر واتساب</a>
+</header>
+
+<nav>
+  <button data-tab="misbaha" class="active">المسبحة</button>
+  <button data-tab="duas">أدعية للمتوفى</button>
+  <button data-tab="adhkar">أذكار الصباح والمساء</button>
+  <button data-tab="khatma">الختمة الجماعية</button>
+</nav>
+
+<main>
+  <!-- ============ MISBAHA ============ -->
+  <section class="tab active" id="tab-misbaha">
+    <h2>المسبحة الإلكترونية</h2>
+    <div class="dhikr-select" id="dhikrSelect"></div>
+    <div class="tap-zone" id="tapZone">
+      <div class="dhikr-now" id="dhikrNow"></div>
+      <div class="count" id="countNow">0</div>
+      <div class="hint">المس هنا للتسبيح</div>
+    </div>
+    <div class="misbaha-row">
+      <div class="total-box">إجمالي تسبيحاتك<br><b id="grandTotal">0</b></div>
+      <button class="mini-btn danger" id="resetBtn">تصفير العداد الحالي</button>
+    </div>
+    <div class="switch-row">
+      <label><input type="checkbox" id="soundToggle"> صوت نقرة هادئ</label>
+    </div>
+  </section>
+
+  <!-- ============ DUAS ============ -->
+  <section class="tab" id="tab-duas">
+    <h2>أدعية مأثورة للمغفور له عبدالمنصف</h2>
+    <div id="duaList"></div>
+  </section>
+
+  <!-- ============ ADHKAR ============ -->
+  <section class="tab" id="tab-adhkar">
+    <h2>أذكار الصباح والمساء</h2>
+    <div class="adhkar-group">
+      <button id="btnMorning" class="sel">أذكار الصباح</button>
+      <button id="btnEvening">أذكار المساء</button>
+    </div>
+    <div class="progress-label">اضغط على الذكر لإنقاص عداده حتى يكتمل</div>
+    <div id="adhkarList"></div>
+    <div style="text-align:center;margin-top:8px"><button class="mini-btn" id="adhkarReset">إعادة الأذكار من الأول</button></div>
+  </section>
+
+  <!-- ============ KHATMA ============ -->
+  <section class="tab" id="tab-khatma">
+    <h2>الختمة الجماعية</h2>
+    <div class="progress-label">اضغط على الجزء الذي قرأته لتحويله إلى «تمت القراءة»، وشارك الرابط ليكتمل القرآن بقراءة الزوار</div>
+    <div class="progress-wrap"><div class="progress-bar" id="khatmaBar">0%</div></div>
+    <div class="progress-label" id="khatmaLabel"></div>
+    <div class="juz-grid" id="juzGrid"></div>
+    <div style="text-align:center;margin-top:14px"><button class="mini-btn danger" id="khatmaReset">بدء ختمة جديدة</button></div>
+  </section>
+</main>
+
+<footer>
+  نسألكم الدعاء له بالرحمة والمغفرة، ولا تنسوا مشاركة التطبيق ليعم الأجر والثواب
+  <br><span class="gold">«إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ» — رواه مسلم</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const store={
+  get(k,d){try{const v=localStorage.getItem("sadaqa_"+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("sadaqa_"+k,JSON.stringify(v))}catch(e){}}
+};
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._tm);t._tm=setTimeout(()=>t.classList.remove("show"),2200);}
+function buzz(){if(navigator.vibrate)try{navigator.vibrate(25)}catch(e){}}
+
+/* ---------- Tabs ---------- */
+document.querySelectorAll("nav button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    $("tab-"+b.dataset.tab).classList.add("active");
+  });
+});
+
+/* ---------- WhatsApp share ---------- */
+const pageUrl=location.href.split("?")[0];
+const shareText="صدقة جارية على روح المغفور له بإذن الله عبدالمنصف السيد ابراهيم شعبان — مسبحة وأدعية وأذكار وختمة جماعية. شارك ليعم الأجر: "+pageUrl;
+$("waShare").href="https://wa.me/?text="+encodeURIComponent(shareText);
+
+/* ---------- Misbaha ---------- */
+const DHIKR=["سبحان الله","الحمد لله","لا إله إلا الله","الله أكبر","أستغفر الله العظيم","اللهم صلِّ وسلم على نبينا محمد"];
+let counts=store.get("misbaha_counts",DHIKR.map(()=>0));
+let sel=store.get("misbaha_sel",0);
+function renderMisbaha(){
+  const ds=$("dhikrSelect");ds.innerHTML="";
+  DHIKR.forEach((d,i)=>{
+    const b=document.createElement("button");
+    b.textContent=d;if(i===sel)b.classList.add("sel");
+    b.addEventListener("click",()=>{sel=i;store.set("misbaha_sel",sel);renderMisbaha();});
+    ds.appendChild(b);
+  });
+  $("dhikrNow").textContent=DHIKR[sel];
+  $("countNow").textContent=counts[sel];
+  $("grandTotal").textContent=counts.reduce((a,b)=>a+b,0);
+}
+let audioCtx=null;
+function clickSound(){
+  if(!$("soundToggle").checked)return;
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.type="sine";o.frequency.value=880;g.gain.setValueAtTime(.06,audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.09);
+    o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.1);
+  }catch(e){}
+}
+$("tapZone").addEventListener("click",()=>{
+  counts[sel]++;store.set("misbaha_counts",counts);
+  $("countNow").textContent=counts[sel];
+  $("grandTotal").textContent=counts.reduce((a,b)=>a+b,0);
+  buzz();clickSound();
+});
+$("resetBtn").addEventListener("click",()=>{
+  counts[sel]=0;store.set("misbaha_counts",counts);renderMisbaha();toast("تم تصفير العداد الحالي");
+});
+$("soundToggle").checked=store.get("misbaha_sound",false);
+$("soundToggle").addEventListener("change",()=>store.set("misbaha_sound",$("soundToggle").checked));
+renderMisbaha();
+
+/* ---------- Duas ---------- */
+const N="عبدالمنصف"; // المغفور له عبدالمنصف السيد ابراهيم شعبان
+const DUAS=[
+ {t:"اللهم اغفر لـ"+N+" وارحمه وعافه واعفُ عنه، وأكرم نزله ووسّع مدخله، واغسله بالماء والثلج والبرد، ونقّه من الخطايا كما يُنقّى الثوب الأبيض من الدنس",s:"من دعاء صلاة الجنازة — رواه مسلم"},
+ {t:"اللهم أبدل "+N+" داراً خيراً من داره، وأهلاً خيراً من أهله، وأدخله الجنة، وأعذه من عذاب القبر ومن عذاب النار",s:"من دعاء صلاة الجنازة — رواه مسلم"},
+ {t:"اللهم اغفر لحيّنا وميّتنا، وشاهدنا وغائبنا، وصغيرنا وكبيرنا، وذكرنا وأنثانا",s:"رواه أبو داود والترمذي وصححه"},
+ {t:"اللهم لا تحرمنا أجره، ولا تفتنّا بعده، واغفر لنا وله",s:"رواه الترمذي وابن ماجه"},
+ {t:"اللهم يا حنان يا منان، وسّع قبر "+N+" ونوّره له فيه، وارفعه في عليّين مع النبيين والصديقين والشهداء والصالحين وحسن أولئك رفيقاً",s:"دعاء"},
+ {t:"اللهم اجعل "+N+" من أهل الفردوس الأعلى بغير حساب ولا سابقة عذاب، واجمعنا به مستقيمين على طاعتك",s:"دعاء"},
+ {t:"اللهم إن "+N+" في ذمتك وحبل جوارك، فقه من فتنة القبر وعذاب النار، وأنت أهل الوفاء والحق، فاغفر له وارحمه إنك أنت الغفور الرحيم",s:"رواه ابن ماجه وصححه الألباني"},
+ {t:"اللهم اجعل ما قرأناه وما عملناه في هذا العمل في ميزان حسنات "+N+"، وتقبله منا صدقة جارية عنه",s:"دعاء"}
+];
+const duaList=$("duaList");
+DUAS.forEach(d=>{
+  const c=document.createElement("div");c.className="card";
+  c.innerHTML='<div class="dua-text"></div><div class="dua-src"></div><div class="dua-actions"><button class="cp">نسخ الدعاء</button><a class="wa" target="_blank" rel="noopener">مشاركة عبر واتساب</a></div>';
+  c.querySelector(".dua-text").textContent=d.t;
+  c.querySelector(".dua-src").textContent=d.s;
+  c.querySelector(".wa").href="https://wa.me/?text="+encodeURIComponent(d.t+"\n\n(صدقة جارية على روح عبدالمنصف السيد ابراهيم شعبان)");
+  c.querySelector(".cp").addEventListener("click",async ()=>{
+    try{await navigator.clipboard.writeText(d.t);toast("تم نسخ الدعاء");}
+    catch(e){
+      const ta=document.createElement("textarea");ta.value=d.t;document.body.appendChild(ta);
+      ta.select();try{document.execCommand("copy");toast("تم نسخ الدعاء");}catch(_){toast("تعذر النسخ على هذا المتصفح");}
+      ta.remove();
+    }
+  });
+  duaList.appendChild(c);
+});
+
+/* ---------- Adhkar ---------- */
+const ADHKAR_MORNING=[
+ {t:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",n:1,s:"آية الكرسي — البقرة ٢٥٥"},
+ {t:"قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ — مع المعوذتين",n:3,s:"رواه أبو داود والترمذي"},
+ {t:"أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",n:1,s:"رواه مسلم"},
+ {t:"اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ",n:1,s:"رواه الترمذي"},
+ {t:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",n:1,s:"سيد الاستغفار — رواه البخاري"},
+ {t:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",n:3,s:"رواه أبو داود والترمذي"},
+ {t:"رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",n:3,s:"رواه أبو داود"},
+ {t:"حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",n:7,s:"رواه أبو داود"},
+ {t:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",n:100,s:"رواه مسلم"}
+];
+const ADHKAR_EVENING=[
+ {t:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",n:1,s:"آية الكرسي — البقرة ٢٥٥"},
+ {t:"قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ — مع المعوذتين",n:3,s:"رواه أبو داود والترمذي"},
+ {t:"أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",n:1,s:"رواه مسلم"},
+ {t:"اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ",n:1,s:"رواه الترمذي"},
+ {t:"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",n:1,s:"سيد الاستغفار — رواه البخاري"},
+ {t:"بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",n:3,s:"رواه أبو داود والترمذي"},
+ {t:"رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",n:3,s:"رواه أبو داود"},
+ {t:"أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",n:3,s:"رواه مسلم"},
+ {t:"سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",n:100,s:"رواه مسلم"}
+];
+let adhkarMode="morning";
+function todayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();}
+function adhkarState(){return store.get("adhkar_"+adhkarMode+"_"+todayKey(),(adhkarMode==="morning"?ADHKAR_MORNING:ADHKAR_EVENING).map(a=>a.n));}
+function renderAdhkar(){
+  const list=$("adhkarList");list.innerHTML="";
+  const data=adhkarMode==="morning"?ADHKAR_MORNING:ADHKAR_EVENING;
+  const st=adhkarState();
+  data.forEach((a,i)=>{
+    const c=document.createElement("div");c.className="card dhikr-card"+(st[i]<=0?" done":"");
+    c.innerHTML='<div class="dhikr-text"></div><div class="meta"><span class="src-note"></span><span class="badge"></span></div>';
+    c.querySelector(".dhikr-text").textContent=a.t;
+    c.querySelector(".src-note").textContent=a.s;
+    c.querySelector(".badge").textContent=st[i]<=0?"✓":st[i];
+    c.addEventListener("click",()=>{
+      const s2=adhkarState();
+      if(s2[i]>0){s2[i]--;store.set("adhkar_"+adhkarMode+"_"+todayKey(),s2);buzz();renderAdhkar();}
+    });
+    list.appendChild(c);
+  });
+}
+$("btnMorning").addEventListener("click",()=>{adhkarMode="morning";$("btnMorning").classList.add("sel");$("btnEvening").classList.remove("sel");renderAdhkar();});
+$("btnEvening").addEventListener("click",()=>{adhkarMode="evening";$("btnEvening").classList.add("sel");$("btnMorning").classList.remove("sel");renderAdhkar();});
+$("adhkarReset").addEventListener("click",()=>{
+  const data=adhkarMode==="morning"?ADHKAR_MORNING:ADHKAR_EVENING;
+  store.set("adhkar_"+adhkarMode+"_"+todayKey(),data.map(a=>a.n));renderAdhkar();toast("تمت إعادة الأذكار");
+});
+renderAdhkar();
+
+/* ---------- Khatma ---------- */
+const AJZA=["الم","سَيَقُولُ","تِلْكَ الرُّسُلُ","لَنْ تَنَالُوا","وَالْمُحْصَنَاتُ","لَا يُحِبُّ اللَّهُ","وَإِذَا سَمِعُوا","وَلَوْ أَنَّنَا","قَالَ الْمَلَأُ","وَاعْلَمُوا","يَعْتَذِرُونَ","وَمَا مِنْ دَابَّةٍ","وَمَا أُبَرِّئُ","رُبَمَا","سُبْحَانَ الَّذِي","قَالَ أَلَمْ","اقْتَرَبَ لِلنَّاسِ","قَدْ أَفْلَحَ","وَقَالَ الَّذِينَ","أَمَّنْ خَلَقَ","اتْلُ مَا أُوحِيَ","وَمَنْ يَقْنُتْ","وَمَا لِيَ","فَمَنْ ظَلَمَ","إِلَيْهِ يُرَدُّ","حم","قَالَ فَمَا خَطْبُكُمْ","قَدْ سَمِعَ اللَّهُ","تَبَارَكَ الَّذِي","عَمَّ"];
+let juzState=store.get("khatma",AJZA.map(()=>false));
+function renderKhatma(){
+  const g=$("juzGrid");g.innerHTML="";
+  AJZA.forEach((nm,i)=>{
+    const c=document.createElement("div");c.className="juz"+(juzState[i]?" read":"");
+    c.innerHTML='<div class="num">الجزء '+(i+1)+'</div><div class="nm"></div>';
+    c.querySelector(".nm").textContent=nm;
+    c.addEventListener("click",()=>{juzState[i]=!juzState[i];store.set("khatma",juzState);buzz();renderKhatma();});
+    g.appendChild(c);
+  });
+  const done=juzState.filter(Boolean).length,pct=Math.round(done/30*100);
+  $("khatmaBar").style.width=pct+"%";$("khatmaBar").textContent=pct+"%";
+  $("khatmaLabel").textContent=done===30?"ما شاء الله، اكتملت الختمة. تقبل الله منكم":"تمت قراءة "+done+" من ٣٠ جزءاً";
+}
+$("khatmaReset").addEventListener("click",()=>{
+  juzState=AJZA.map(()=>false);store.set("khatma",juzState);renderKhatma();toast("بدأت ختمة جديدة");
+});
+renderKhatma();
+</script>
+</body>
+</html>
