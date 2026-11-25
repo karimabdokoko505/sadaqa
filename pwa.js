@@ -19,3 +19,22 @@ if(!window.AndroidBridge){
     }catch(e){}
   },20000);
 }
+
+/* salawat reminder while app is open (browser/PWA path only) */
+if(!window.AndroidBridge){
+  setInterval(function(){
+    try{
+      var r=state.reminder; if(!r||!r.interval||r.interval<=0) return;
+      var h=new Date().getHours();
+      if(r.quiet&&(h>=23||h<5)) return;
+      var now=Date.now();
+      var last=+(localStorage.getItem('nidaa_reminder_last')||0);
+      if(last===0){ localStorage.setItem('nidaa_reminder_last',now); return; }
+      if(now-last<r.interval*60000) return;
+      localStorage.setItem('nidaa_reminder_last',now);
+      if('Notification' in window && Notification.permission==='granted'){
+        try{ new Notification('نِداء',{body:'اللهم صل وسلم على نبينا محمد',silent:!r.sound}); }catch(e){}
+      } else if(typeof toast==='function'){ toast('اللهم صل وسلم على نبينا محمد'); }
+    }catch(e){}
+  },30000);
+}

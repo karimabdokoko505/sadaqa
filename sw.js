@@ -1,4 +1,4 @@
-var CACHE='nidaa-v4';
+var CACHE='nidaa-v5';
 var FILES=[
   "./AmiriQuran-Regular.ttf",
   "./Tajawal-Bold.ttf",

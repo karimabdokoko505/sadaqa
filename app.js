@@ -3,12 +3,13 @@ var state = {
   city: JSON.parse(localStorage.getItem('city')||'null') || CITIES[0],
   voice: localStorage.getItem('voice') || 'adhan_makkah',
   enabled: JSON.parse(localStorage.getItem('enabled')||'{"fajr":true,"dhuhr":true,"asr":true,"maghrib":true,"isha":true}'),
-  master: localStorage.getItem('master')!=='0'
+  master: localStorage.getItem('master')!=='0',
+  reminder: JSON.parse(localStorage.getItem('nidaa_reminder')||'null')||{interval:20,sound:true,quiet:true}
 };
 function save(){ localStorage.setItem('city',JSON.stringify(state.city)); localStorage.setItem('voice',state.voice);
-  localStorage.setItem('enabled',JSON.stringify(state.enabled)); localStorage.setItem('master',state.master?'1':'0');
+  localStorage.setItem('enabled',JSON.stringify(state.enabled)); localStorage.setItem('master',state.master?'1':'0'); localStorage.setItem('nidaa_reminder',JSON.stringify(state.reminder));
   if(window.AndroidBridge&&AndroidBridge.syncSettings){ AndroidBridge.syncSettings(JSON.stringify(
-    {city:state.city,voice:state.voice,enabled:state.enabled,master:state.master})); }
+    {city:state.city,voice:state.voice,enabled:state.enabled,master:state.master,reminder:state.reminder})); }
 }
 var PRAYERS=[["fajr","الفجر",'<svg viewBox="0 0 24 24" width="17" height="17"><path fill="#f0d98a" d="M12 4l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg>'],["sunrise","الشروق",'<svg viewBox="0 0 24 24" width="17" height="17"><path fill="#f0d98a" d="M4 18h16v2H4zM12 8a5 5 0 0 1 5 5H7a5 5 0 0 1 5-5zm0-6v4M4.2 6.2l2.8 2.8M19.8 6.2L17 9" stroke="#f0d98a" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>'],["dhuhr","الظهر",'<svg viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="#f0d98a"/><g stroke="#f0d98a" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="17" y2="7"/><line x1="7" y1="17" x2="4.9" y2="19.1"/></g></svg>'],["asr","العصر",'<svg viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="14" r="4" fill="#f0d98a"/><g stroke="#f0d98a" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="7" x2="12" y2="9"/><line x1="5.5" y1="10.5" x2="7" y2="12"/><line x1="18.5" y1="10.5" x2="17" y2="12"/></g><line x1="3" y1="19" x2="21" y2="19" stroke="#f0d98a" stroke-width="1.5" stroke-linecap="round"/></svg>'],["maghrib","المغرب",'<svg viewBox="0 0 24 24" width="17" height="17"><path fill="#f0d98a" d="M4 18h16v2H4zM7 15a5 5 0 0 1 10 0z"/><line x1="12" y1="3" x2="12" y2="7" stroke="#f0d98a" stroke-width="1.6" stroke-linecap="round"/></svg>'],["isha","العشاء",'<svg viewBox="0 0 24 24" width="17" height="17"><path fill="#f0d98a" d="M15 3a8.5 8.5 0 1 0 6 14.5A10 10 0 0 1 15 3z"/></svg>']];
 var ALARMS=["fajr","dhuhr","asr","maghrib","isha"];
@@ -123,8 +124,16 @@ document.getElementById('readerBack').addEventListener('click',function(){
 document.getElementById('surahSearch').addEventListener('input',function(e){renderSurahList(e.target.value.trim());});
 
 /* ---------- audio preview ---------- */
-var curAudio=null, curBtn=null;
+var curAudio=null, curBtn=null, curNative=null;
+function showErr(msg){ var b=document.getElementById('errorBanner'); if(!b) return; b.textContent=msg; b.classList.remove('hidden'); clearTimeout(b._tm); b._tm=setTimeout(function(){b.classList.add('hidden');},4000); }
 function toggleAudio(src,btn){
+  if(window.AndroidBridge&&AndroidBridge.playAudio){
+    if(curNative===src){ try{AndroidBridge.stopAudio();}catch(e){} if(curBtn)curBtn.textContent='▶'; curNative=null; curBtn=null; return; }
+    if(curNative){ try{AndroidBridge.stopAudio();}catch(e){} if(curBtn)curBtn.textContent='▶'; }
+    if(AndroidBridge.playAudio('audio/'+src)){ curNative=src; curBtn=btn; btn.textContent='⏸'; }
+    else showErr('تعذر تشغيل الصوت على هذا الجهاز');
+    return;
+  }
   if(curAudio && curAudio._src===src){
     if(curAudio.paused){curAudio.play();btn.textContent='⏸';}
     else{curAudio.pause();btn.textContent='▶';}
@@ -133,9 +142,10 @@ function toggleAudio(src,btn){
   stopAudio();
   curAudio=new Audio(src); curAudio._src=src; curBtn=btn;
   curAudio.addEventListener('ended',function(){if(curBtn)curBtn.textContent='▶';});
+  curAudio.addEventListener('error',function(){showErr('تعذر تشغيل الصوت على هذا الجهاز');});
   curAudio.play(); btn.textContent='⏸';
 }
-function stopAudio(){ if(curAudio){curAudio.pause();curAudio=null;} if(curBtn){curBtn.textContent='▶';curBtn=null;} }
+function stopAudio(){ if(curNative){try{AndroidBridge.stopAudio();}catch(e){} curNative=null;} if(curAudio){curAudio.pause();curAudio=null;} if(curBtn){curBtn.textContent='▶';curBtn=null;} }
 
 /* ---------- adhkar ---------- */
 function renderAdhkarList(filter){
@@ -196,6 +206,17 @@ citySel.value=CITIES.indexOf(state.city)>=0?CITIES.indexOf(state.city):0;
 citySel.addEventListener('change',function(){state.city=CITIES[+citySel.value];save();renderTimes();});
 document.getElementById('masterSwitch').checked=state.master;
 document.getElementById('masterSwitch').addEventListener('change',function(e){state.master=e.target.checked;save();});
+/* ---------- salawat reminder ---------- */
+var remSel=document.getElementById('reminderSelect');
+remSel.value=String(state.reminder.interval);
+document.getElementById('reminderSound').checked=state.reminder.sound;
+document.getElementById('reminderQuiet').checked=state.reminder.quiet;
+function reminderPerm(){ if(state.reminder.interval>0 && !window.AndroidBridge && 'Notification' in window && Notification.permission==='default'){ try{Notification.requestPermission();}catch(e){} } }
+document.getElementById('reminderNote').textContent=window.AndroidBridge?'يعمل التذكير حتى والتطبيق مغلق، مع مراعاة ساعات الهدوء.':'في نسخة المتصفح: يعمل التذكير فقط أثناء فتح التطبيق وبعد السماح بالإشعارات.';
+remSel.addEventListener('change',function(){state.reminder.interval=+remSel.value;save();reminderPerm();});
+document.getElementById('reminderSound').addEventListener('change',function(e){state.reminder.sound=e.target.checked;save();});
+document.getElementById('reminderQuiet').addEventListener('change',function(e){state.reminder.quiet=e.target.checked;save();});
+reminderPerm();
 document.getElementById('testAdhan').addEventListener('click',function(){
   if(window.AndroidBridge&&AndroidBridge.testAdhan){AndroidBridge.testAdhan();}
   else{ var v=VOICES.filter(function(x){return x.id===state.voice;})[0]||VOICES[0];

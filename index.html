@@ -189,6 +189,19 @@
       <button id="testAdhan" class="gold-btn">تجربة الأذان</button>
     </div>
     <div class="settings-group" id="notifPermBar" style="display:none"><span id="notifPermText"></span> <button id="notifPermBtn" class="plain-btn" style="margin-top:8px">السماح بالإشعارات</button></div>
+    <div class="settings-group">
+      <label class="set-label">تذكير الصلاة على النبي ﷺ</label>
+      <select id="reminderSelect" class="city-select">
+        <option value="10">كل ١٠ دقائق</option>
+        <option value="20">كل ٢٠ دقيقة</option>
+        <option value="30">كل ٣٠ دقيقة</option>
+        <option value="60">كل ساعة</option>
+        <option value="0">إيقاف</option>
+      </select>
+    </div>
+    <div class="settings-group row"><span>صوت مع التذكير</span><label class="switch"><input type="checkbox" id="reminderSound" checked><span class="slider"></span></label></div>
+    <div class="settings-group row"><span>ساعات هدوء (١١ م - ٥ ص)</span><label class="switch"><input type="checkbox" id="reminderQuiet" checked><span class="slider"></span></label></div>
+    <div class="settings-group note" id="reminderNote"></div>
     <div class="settings-group note" id="permNote"></div>
     <div class="settings-group note" id="nextAlarmLine" style="display:none"></div>
     <div class="settings-group about">
